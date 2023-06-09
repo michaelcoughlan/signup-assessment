@@ -2,6 +2,11 @@
 dist/
 node_modules/
 
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
+
 # Mac files
 **/.DS_Store
 .DS_Store

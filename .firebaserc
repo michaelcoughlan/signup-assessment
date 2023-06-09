@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "signup-assessment": {
+      "hosting": {
+        "signup-assessment": [
+          "signup-assessment"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "signup-assessment"
+  }
+}
