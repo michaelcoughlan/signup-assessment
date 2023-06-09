@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+// Modules
+import { SignUpModule } from './sign-up/sign-up.module';
+
+// Components
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -8,7 +12,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SignUpModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
