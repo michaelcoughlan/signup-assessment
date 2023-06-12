@@ -1,27 +1,24 @@
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
+import { SignUpModule } from './sign-up/sign-up.module';
 
 describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    declarations: [AppComponent]
-  }));
+    beforeEach(() => TestBed.configureTestingModule({
+        declarations: [AppComponent],
+        imports: [
+            HttpClientModule,
+            SharedModule,
+            SignUpModule,
+        ],
+    }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+    it('should create the app', () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const app = fixture.componentInstance;
 
-  it(`should have as title 'signup-assessment'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('signup-assessment');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('signup-assessment app is running!');
-  });
+        expect(app).toBeTruthy();
+    });
 });

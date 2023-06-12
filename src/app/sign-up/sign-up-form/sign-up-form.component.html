@@ -1,1 +1,78 @@
-<p>sign-up-form works!</p>
+<h1>Please enter your details below</h1>
+
+<form [formGroup]="signUpForm" (ngSubmit)="sendFormData()">
+    <div>
+        <mat-form-field>
+            <mat-label>Enter your first name</mat-label>
+            <input id="firstName" formControlName="firstName" matInput required />
+        </mat-form-field>
+
+        <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="signup-form__error-wrapper">
+            <mat-error *ngIf="firstName?.errors?.['required']">
+                First Name is required
+            </mat-error>
+        </div>
+    </div>
+    
+    <div>
+        <mat-form-field>
+            <mat-label>Enter your last name</mat-label>
+            <input id="lastName" formControlName="lastName" matInput required />
+        </mat-form-field>
+
+        <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)" class="signup-form__error-wrapper">
+            <mat-error *ngIf="lastName?.errors?.['required']">
+                Last Name is required
+            </mat-error>
+        </div>
+    </div>
+
+    <div>
+        <mat-form-field>
+            <mat-label>Enter your email</mat-label>
+            <input id="email" formControlName="email" matInput required />
+        </mat-form-field>
+
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="signup-form__error-wrapper">
+            <mat-error *ngIf="email?.errors?.['required']">
+                Email is required
+            </mat-error>
+
+            <mat-error *ngIf="email?.errors?.['pattern']">
+                Please enter a valid email (e.g. test@email.com)
+            </mat-error>
+        </div>
+    </div>
+
+    <div>
+        <mat-form-field>
+            <mat-label>Enter your password</mat-label>
+            <input id="password" formControlName="password" type="password" matInput required />
+        </mat-form-field>
+
+        <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="signup-form__error-wrapper" data-testid="password-errors-testid">
+            <mat-error *ngIf="password?.errors?.['required']">
+                Password is required
+            </mat-error>
+
+            <mat-error *ngIf="password?.errors?.['minlength']">
+                Password must be at least 8 characters
+            </mat-error>
+
+            <mat-error *ngIf="password?.errors?.['isLowerAndUpperCasePresent']" data-testid="isLowerAndUpperCasePresent-testid">
+                Password must contain a mix of upper and lower case characters
+            </mat-error>
+        </div>
+
+        <div *ngIf="signUpForm.errors?.['nameInPassword']" class="signup-form__error-wrapper">
+            <mat-error data-testid="nameInPassword-testid">
+                You cannot have your first or last name in your password
+            </mat-error>
+        </div>
+    </div>
+    
+    <div>
+        <app-button class="signup-form__buttons" [isDisabled]="!signUpForm.valid" text="Send" type="submit"></app-button>
+        <app-button (onClick)="resetForm()" text="Reset" type="reset"></app-button>
+    </div>
+</form>
