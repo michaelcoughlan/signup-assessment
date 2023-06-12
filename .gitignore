@@ -1,5 +1,6 @@
 .angular/
 coverage/
+cypress/videos/
 dist/
 node_modules/
 
