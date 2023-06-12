@@ -1,4 +1,4 @@
-# SignupAssessment
+# SignUpAssessment
 
 ## Running the application
 
