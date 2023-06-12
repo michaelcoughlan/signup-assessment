@@ -109,7 +109,7 @@ describe('SignUpFormComponent', () => {
         });
 
         fixture.detectChanges();
-        let nameInPasswordErrorMessage = fixture.debugElement.nativeElement.querySelector('[data-testid="nameInPassword-testid"]');
+        let nameInPasswordErrorMessage = fixture.debugElement.nativeElement.querySelector('[data-testid="sa__password-name-in-password-error"]');
 
         expect(nameInPasswordErrorMessage).toBeTruthy();
     });
@@ -123,7 +123,7 @@ describe('SignUpFormComponent', () => {
         });
 
         fixture.detectChanges();
-        let nameInPasswordErrorMessage = fixture.debugElement.nativeElement.querySelector('[data-testid="nameInPassword-testid"]');
+        let nameInPasswordErrorMessage = fixture.debugElement.nativeElement.querySelector('[data-testid="sa__password-name-in-password-error"]');
 
         expect(nameInPasswordErrorMessage).toBeFalsy();
     });

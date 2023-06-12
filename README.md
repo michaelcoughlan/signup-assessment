@@ -2,17 +2,20 @@
 
 ## Running the application
 
-- Development: You can run `npm start` to start the application in development mode. The application can be found on `http://localhost:4200/` and will automatically reload if you change any of the source files.
+- Development: After running `npm install`, you can run `npm start` to start the application in development mode. The application can be found on `http://localhost:4200/` and will automatically reload if you change any of the source files.
 - Production: You can visit `https://signup-assessment.web.app` to view SignUp Assessment hosted on Firebase.
 
-## Testing
+## Running unit tests
 
 - `npm test` will execute the unit tests.
 - `npm run test:coverage` will provide the coverage report in the `coverage/` directory.
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Ensure the application is running with `npm start`.
+- `npm run cypress:run` will execute the end to end tests.
+- Videos of the E2E tests can then be found in `cypress/video`.
+- You can also run directly `npm run e2e` and it will start the application and also the e2e tests.
 
 ## Architecture Decisions
 
@@ -27,4 +30,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 - The API_BASE_URL would be moved to environment variables, this would ensure that for different environments like local, staging, uat, production, etc would be able to have dynamic base urls.
 - Add a debounce to the form inputs so they don't validate immediately. For example, typing into the password field will straight away throw the error message for minimum of 8 characters required. An improvement would be validating on blur or else adding time before validating.
 - On submission, the form is reset and the inputs turn red. This is incorrect due to `signUpForm` containing `required` errors in each of the form controls, even though the form itself is pristine.
-- The only integration test is testing the on click for the button in the sign up spec. I would like to add a few more, as well as automation testing with Cypress or another framework.
+- The input field can be turned into a component, at the moment it is repeated code so that would benefit hugely from being its own component.
+- The only integration test is testing the on click for the button in the sign up spec. I would like to add a few more.
+- The Cypress E2E tests just validate the content, in a real application this would cover all functionality.
